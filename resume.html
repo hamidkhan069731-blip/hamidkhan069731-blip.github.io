@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamid Khan — Resume</title>
+<style>
+  @page { size: A4; margin: 12mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 10.2pt; line-height: 1.42; color: #1a1a1a;
+    max-width: 800px; margin: 0 auto; padding: 26px 30px;
+    background: #fff;
+  }
+  h1 { font-size: 24pt; margin: 0 0 3px; letter-spacing: -0.5px; color: #0f2b46; }
+  .title { font-size: 11pt; font-weight: 600; color: #2b6cb0; margin: 0 0 8px; }
+  .contact { font-size: 9.2pt; color: #555; margin: 0 0 4px; }
+  .contact span { white-space: nowrap; }
+  .sep { color: #bbb; margin: 0 5px; }
+  hr.rule { border: none; border-top: 2px solid #0f2b46; margin: 12px 0 14px; }
+
+  h2 {
+    font-size: 11pt; text-transform: uppercase; letter-spacing: 1.1px;
+    color: #0f2b46; margin: 16px 0 7px; padding-bottom: 3px;
+    border-bottom: 1px solid #cfd8e0;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  p { margin: 0 0 7px; }
+  ul { margin: 4px 0 8px; padding-left: 17px; }
+  li { margin-bottom: 3px; }
+
+  .skills-row { display: flex; margin-bottom: 5px; }
+  .skills-row .k {
+    flex: 0 0 108px; font-weight: 600; color: #0f2b46; font-size: 9.5pt;
+  }
+  .skills-row .v { flex: 1; }
+
+  .proj { margin-bottom: 12px; page-break-inside: avoid; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .proj-head .name { font-weight: 700; font-size: 11pt; color: #12283f; }
+  .proj-head .role { font-style: italic; color: #2b6cb0; font-size: 9.4pt; }
+  .stack { font-size: 8.9pt; color: #666; margin: 2px 0 4px; font-family: Consolas, monospace; }
+  .proj ul { margin-top: 3px; }
+
+  .job { margin-bottom: 10px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .job-head .role { font-weight: 700; color: #12283f; }
+  .job-head .dates { font-size: 9pt; color: #666; white-space: nowrap; }
+  .job-head .co { font-style: italic; color: #444; font-size: 9.6pt; }
+  .placeholder { color: #a0a0a0; font-style: italic; }
+
+  .two-col { display: flex; gap: 24px; }
+  .two-col > div { flex: 1; }
+
+  .footnote { margin-top: 14px; font-size: 8.6pt; color: #777; font-style: italic; border-top: 1px solid #e2e8ee; padding-top: 7px; }
+
+  @media print {
+    body { padding: 0; font-size: 10pt; }
+    a { color: inherit; text-decoration: none; }
+    .proj { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Hamid Khan</h1>
+<p class="title">Full-Stack Developer &amp; AI Engineer — ERP &amp; Business Systems</p>
+<p class="contact">
+  <span>Lahore, Pakistan</span><span class="sep">•</span>
+  <a href="mailto:hamidkhan069731@gmail.com">hamidkhan069731@gmail.com</a><span class="sep">•</span>
+  <span>0348 6311899</span>
+</p>
+<p class="contact">
+  <a href="https://www.linkedin.com/in/hamid-khan-dev07">linkedin.com/in/hamid-khan-dev07</a><span class="sep">•</span>
+  <a href="https://github.com/hamidkhan069731-blip">github.com/hamidkhan069731-blip</a>
+</p>
+<hr class="rule">
+
+<h2>Summary</h2>
+<p>
+  Full-stack developer and AI engineer specialising in <strong>business and ERP systems</strong> and <strong>practical AI integration</strong>.
+  I build complete products end to end — database schema, REST API, authentication and permissions, frontend, and desktop
+  packaging — with a consistent rule: <strong>no fake functionality</strong>. If a feature exists, it is wired to a real
+  implementation and real data. Recent work spans four production-architected systems: an AI voice receptionist that books
+  real appointments, a Windows desktop AI assistant with a governed tool-permission engine, a multi-role law firm ERP, and a
+  university ERP with student, faculty, and admin portals.
+</p>
+
+<h2>Technical Skills</h2>
+<div class="skills-row"><div class="k">Backend</div><div class="v">Node.js, Express, Python, FastAPI, REST API design, WebSockets</div></div>
+<div class="skills-row"><div class="k">Frontend</div><div class="v">JavaScript (ES6+), HTML5, CSS3, responsive UI</div></div>
+<div class="skills-row"><div class="k">Databases</div><div class="v">PostgreSQL, SQLite — schema design, migrations, seeded fixtures, parameterised query hygiene</div></div>
+<div class="skills-row"><div class="k">AI Engineering</div><div class="v">Anthropic SDK, tool-calling / agent loops, OpenAI-compatible providers, system prompt and tool-schema design, graceful degradation without keys</div></div>
+<div class="skills-row"><div class="k">Auth &amp; Security</div><div class="v">JWT, bcrypt, role-based access control, zod validation, rate limiting, helmet / CSP, SQL-injection prevention, row-level ownership enforced in SQL</div></div>
+<div class="skills-row"><div class="k">Desktop</div><div class="v">Electron packaging (Windows / macOS / Linux)</div></div>
+<div class="skills-row"><div class="k">Tooling</div><div class="v">Git &amp; GitHub, npm, pip, Jest, environment and configuration management</div></div>
+
+<h2>Projects</h2>
+
+<div class="proj">
+  <div class="proj-head">
+    <span class="name">AI Dental Receptionist</span>
+    <span class="role">AI voice / chat booking system</span>
+  </div>
+  <div class="stack">Node.js · Express · SQLite / PostgreSQL · Anthropic tool-calling · JWT · Web Speech API · Jest</div>
+  <ul>
+    <li>Built a patient-facing voice and chat receptionist that books, cancels, and reschedules appointments against a <strong>real database</strong> — no invented availability or mock responses.</li>
+    <li>Implemented an availability engine with <strong>slot locking and double-booking prevention</strong>, shared by the REST API, the voice widget, and the LLM tool layer through a single code path.</li>
+    <li>Wired real Anthropic tool-calling so the AI calls the same service functions as direct API clients; designed graceful degradation to a clear "AI unavailable" state when no key is configured.</li>
+    <li>Layered JWT authentication, rate limiting, a <code>NotificationService</code> abstraction (email / SMS / WhatsApp), and a Jest test suite over the business logic.</li>
+  </ul>
+</div>
+
+<div class="proj">
+  <div class="proj-head">
+    <span class="name">J.A.R.V.I.S.</span>
+    <span class="role">Personal AI operating system — Windows desktop</span>
+  </div>
+  <div class="stack">Python 3.11+ · FastAPI · WebSocket · Web Speech API · Anthropic / OpenAI-compatible providers</div>
+  <ul>
+    <li>Designed a modular desktop assistant that performs <strong>real computer operations</strong> — launching apps, managing files, monitoring system health, running gated shell commands — exposed through <strong>36 tools</strong> across app, file, system, web, memory, and developer categories.</li>
+    <li>Built a <strong>permission and risk engine</strong> classifying every action by permission level (safe / confirm / always-confirm) and risk (low → critical), so irreversible actions can never be silently auto-run.</li>
+    <li>Implemented a genuine offline <strong>rule-based intent router</strong> so the assistant is fully useful with no API key and no internet, with cloud providers swappable at runtime and nothing hard-coded.</li>
+    <li>Added multilingual routing (English, Urdu, Roman Urdu), a live system HUD (CPU / RAM / disk / network / battery), voice with wake word and barge-in, and a drop-in skill system — with every tool call and approval written to an audit log.</li>
+  </ul>
+</div>
+
+<div class="proj">
+  <div class="proj-head">
+    <span class="name">LexOffice</span>
+    <span class="role">Law firm management ERP</span>
+  </div>
+  <div class="stack">Node.js · Express · SQLite · JWT · bcrypt · Electron</div>
+  <ul>
+    <li>Re-architected a single-file, browser-IndexedDB demo into a <strong>multi-user client-server system</strong> with a real server-side database and server-verified login.</li>
+    <li>Built a REST API and data layer covering clients, cases, and firm modules, with <strong>role-based permissions</strong> for Admin, Lawyer, Assistant, and Accountant.</li>
+    <li>Implemented first-run seeding so a new install self-populates demo data and is usable immediately.</li>
+    <li>Packaged the full stack as a cross-platform <strong>Electron desktop application</strong> (.exe / .dmg / .AppImage).</li>
+  </ul>
+</div>
+
+<div class="proj">
+  <div class="proj-head">
+    <span class="name">University ERP System</span>
+    <span class="role">Student · Faculty · Admin portals</span>
+  </div>
+  <div class="stack">Node.js · Express · PostgreSQL · JWT · bcrypt · zod · helmet</div>
+  <ul>
+    <li>Delivered three role-based portals plus a public admissions website, all reading and writing <strong>live PostgreSQL data</strong> — no sample data in the running system.</li>
+    <li>Implemented attendance marking with duplicate-save prevention, results with automatic letter-grade computation, CGPA, transcripts (print / PDF), exam slips, invoices, hostel, and multi-step request workflows (retest, course drop, defer term, final degree).</li>
+    <li>Secured the system end to end: bcrypt hashing, fully parameterised queries, zod validation on every input, rate-limited login and write endpoints, and a Content-Security-Policy via helmet.</li>
+    <li>Enforced <strong>row-level ownership in SQL</strong> rather than the UI — a student can only read their own records, and faculty can only mark or grade students enrolled on their own courses.</li>
+  </ul>
+</div>
+
+<h2>Experience</h2>
+<div class="job">
+  <div class="job-head">
+    <span class="role">Independent Software Developer</span>
+    <span class="dates">2024 – Present</span>
+  </div>
+  <div class="co">Self-directed projects — Lahore, Pakistan</div>
+  <ul>
+    <li>Designed and delivered <strong>four full-stack systems end to end</strong> — database schema, REST API, authentication and permissions, frontend, and desktop packaging — across ERP, AI assistant, and AI voice-booking domains.</li>
+    <li>Built AI features with the <strong>Anthropic SDK using real tool-calling agent loops</strong>, wired to the same production service functions the REST API uses, including graceful degradation when no API key is configured.</li>
+    <li>Applied the same security baseline on every project: bcrypt hashing, JWT auth, role-based access control, zod validation, rate limiting, and row-level ownership enforced in SQL rather than the UI.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">
+    <span class="role placeholder">[Job Title — if you have prior employment]</span>
+    <span class="dates placeholder">[Month YYYY – Month YYYY]</span>
+  </div>
+  <div class="co placeholder">[Company Name] — [City]</div>
+  <ul class="placeholder">
+    <li>What you built or improved, and the measurable result.</li>
+    <li>What you owned and who you worked with.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="job">
+  <div class="job-head">
+    <span class="role">BS Computer Science</span>
+    <span class="dates">2025 – 2029 (expected)</span>
+  </div>
+  <div class="co">Superior University, Lahore</div>
+  <div style="font-size:9.3pt;color:#555;margin-top:3px;">Currently in 2nd semester. Coursework in data structures, OOP, databases, and web development — applied in four self-directed full-stack projects below.</div>
+</div>
+
+<h2>Languages</h2>
+<ul>
+  <li><strong>Urdu</strong> — Native</li>
+  <li><strong>English</strong> — Professional working proficiency</li>
+  <li><strong>Punjabi</strong> — Conversational</li>
+</ul>
+
+<p class="footnote">
+  All four projects are open-source on GitHub — a live portfolio with full write-ups is linked above.
+</p>
+
+</body>
+</html>

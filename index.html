@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamid Khan — Full-Stack Developer & AI Engineer</title>
+<meta name="description" content="Full-Stack Developer & AI Engineer from Lahore, Pakistan. I build complete business systems and practical AI integration — ERP, AI assistants, and voice-booking platforms.">
+<meta name="author" content="Hamid Khan">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hamid Khan — Full-Stack Developer & AI Engineer">
+<meta property="og:description" content="I build complete business systems and practical AI integration. No fake functionality.">
+<meta property="og:url" content="https://hamidkhan069731-blip.github.io/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#08090d;
+  --bg-2:#0d0f16;
+  --surface:rgba(255,255,255,.028);
+  --surface-hi:rgba(255,255,255,.055);
+  --border:rgba(255,255,255,.085);
+  --border-hi:rgba(255,255,255,.17);
+  --text:#eef1f7;
+  --text-dim:#98a0b3;
+  --text-faint:#666e82;
+  --accent:#4d9fff;
+  --accent-2:#7c5cff;
+  --accent-3:#22d3a7;
+  --glow:rgba(77,159,255,.16);
+  --radius:16px;
+  --max:1120px;
+  --ease:cubic-bezier(.22,.72,.24,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(760px 520px at 12% -6%, rgba(77,159,255,.13), transparent 62%),
+    radial-gradient(680px 480px at 88% 4%, rgba(124,92,255,.115), transparent 62%),
+    radial-gradient(560px 460px at 62% 100%, rgba(34,211,167,.07), transparent 62%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.019) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.019) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 92% 78% at 50% 42%,#000 32%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 92% 78% at 50% 42%,#000 32%,transparent 78%);
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 26px;}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:blur(18px) saturate(170%);
+  -webkit-backdrop-filter:blur(18px) saturate(170%);
+  background:rgba(8,9,13,.66);
+  border-bottom:1px solid transparent;
+  transition:border-color .35s var(--ease),background .35s var(--ease);
+}
+nav.scrolled{border-bottom-color:var(--border);background:rgba(8,9,13,.9);}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:15px 26px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{
+  font-weight:700;font-size:15px;letter-spacing:-.2px;
+  display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);
+}
+.brand-dot{
+  width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  box-shadow:0 0 12px rgba(77,159,255,.75);
+  animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.62;transform:scale(.86);}}
+.nav-links{display:flex;gap:6px;align-items:center;}
+.nav-links a{
+  color:var(--text-dim);text-decoration:none;font-size:13.5px;font-weight:500;
+  padding:7px 13px;border-radius:9px;transition:color .22s,background .22s;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface-hi);}
+.nav-cta{
+  color:var(--text)!important;background:var(--surface-hi)!important;
+  border:1px solid var(--border-hi)!important;
+}
+.nav-cta:hover{border-color:var(--accent)!important;background:rgba(77,159,255,.12)!important;}
+
+/* ---------- HERO ---------- */
+header{padding:158px 0 92px;position:relative;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:500;color:var(--text-dim);
+  background:var(--surface);border:1px solid var(--border);
+  padding:7px 15px;border-radius:100px;margin-bottom:26px;
+  letter-spacing:.2px;
+}
+.eyebrow .live{
+  width:6.5px;height:6.5px;border-radius:50%;background:var(--accent-3);
+  box-shadow:0 0 9px var(--accent-3);animation:pulse 2s ease-in-out infinite;
+}
+h1{
+  font-size:clamp(2.5rem,6.4vw,4.4rem);
+  font-weight:800;letter-spacing:-.035em;line-height:1.04;margin-bottom:22px;
+}
+h1 .grad{
+  background:linear-gradient(112deg,#4d9fff 4%,#7c5cff 46%,#22d3a7 96%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.lede{
+  font-size:clamp(1rem,1.75vw,1.16rem);color:var(--text-dim);
+  max-width:64ch;margin-bottom:36px;line-height:1.68;
+}
+.lede strong{color:var(--text);font-weight:600;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:60px;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 25px;border-radius:11px;font-size:14.5px;font-weight:600;
+  text-decoration:none;border:1px solid transparent;cursor:pointer;
+  transition:transform .22s var(--ease),box-shadow .28s,border-color .22s,background .22s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;box-shadow:0 9px 30px rgba(77,159,255,.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 42px rgba(77,159,255,.42);}
+.btn-ghost{
+  background:var(--surface);color:var(--text);border-color:var(--border-hi);
+}
+.btn-ghost:hover{transform:translateY(-2px);background:var(--surface-hi);border-color:var(--accent);}
+
+/* ---------- STATS ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+}
+.stat{background:var(--bg-2);padding:24px 22px;transition:background .3s;}
+.stat:hover{background:var(--bg);}
+.stat-num{
+  font-size:1.85rem;font-weight:800;letter-spacing:-.03em;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  font-family:'JetBrains Mono',monospace;line-height:1.2;
+}
+.stat-label{font-size:12.5px;color:var(--text-faint);margin-top:5px;font-weight:500;letter-spacing:.2px;}
+
+/* ---------- SECTIONS ---------- */
+section{padding:88px 0;position:relative;}
+.section-head{margin-bottom:46px;}
+.section-tag{
+  font-size:12px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;font-family:'JetBrains Mono',monospace;
+}
+h2{
+  font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700;
+  letter-spacing:-.03em;line-height:1.14;margin-bottom:14px;
+}
+.section-sub{color:var(--text-dim);max-width:70ch;font-size:15.5px;}
+
+/* ---------- PROJECTS ---------- */
+.projects{display:flex;flex-direction:column;gap:22px;}
+.project{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:32px 34px;position:relative;overflow:hidden;
+  transition:border-color .35s var(--ease),transform .35s var(--ease),background .35s;
+}
+.project::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--accent),var(--accent-2),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.project:hover{border-color:var(--border-hi);transform:translateY(-3px);background:rgba(255,255,255,.042);}
+.project:hover::before{opacity:1;}
+.project-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:20px;flex-wrap:wrap;margin-bottom:7px;
+}
+.project-idx{
+  font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-faint);
+  font-weight:600;letter-spacing:1px;
+}
+.project h3{
+  font-size:1.34rem;font-weight:700;letter-spacing:-.022em;margin-bottom:5px;
+  display:flex;align-items:center;gap:11px;flex-wrap:wrap;
+}
+.project-kind{
+  font-size:11.5px;font-weight:600;color:var(--accent);
+  background:rgba(77,159,255,.11);border:1px solid rgba(77,159,255,.26);
+  padding:3.5px 11px;border-radius:100px;letter-spacing:.3px;
+}
+.project-kind.a2{color:var(--accent-2);background:rgba(124,92,255,.11);border-color:rgba(124,92,255,.26);}
+.project-kind.a3{color:var(--accent-3);background:rgba(34,211,167,.1);border-color:rgba(34,211,167,.26);}
+.project-pitch{
+  color:var(--text-dim);font-size:15px;margin-bottom:18px;max-width:82ch;
+}
+.project-pitch strong{color:var(--text);font-weight:600;}
+.project ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
+.project li{
+  position:relative;padding-left:23px;font-size:14.4px;
+  color:var(--text-dim);line-height:1.6;
+}
+.project li::before{
+  content:'';position:absolute;left:4px;top:9px;
+  width:5.5px;height:5.5px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+}
+.project li strong{color:var(--text);font-weight:600;}
+.stack{display:flex;flex-wrap:wrap;gap:7px;}
+.tag{
+  font-family:'JetBrains Mono',monospace;font-size:11.4px;font-weight:500;
+  color:var(--text-dim);background:rgba(255,255,255,.045);
+  border:1px solid var(--border);padding:5px 11px;border-radius:7px;
+  transition:color .22s,border-color .22s,background .22s;
+}
+.project:hover .tag{color:#c8d2e4;border-color:var(--border-hi);}
+.repo-link{
+  display:inline-flex;align-items:center;gap:7px;flex-shrink:0;
+  font-size:13px;font-weight:600;text-decoration:none;color:var(--text-dim);
+  background:var(--surface);border:1px solid var(--border);
+  padding:8px 14px;border-radius:9px;white-space:nowrap;
+  transition:color .22s,border-color .22s,background .22s,transform .22s;
+}
+.repo-link:hover{color:#fff;border-color:var(--accent);background:rgba(77,159,255,.12);transform:translateY(-1px);}
+.repo-link svg{transition:transform .22s var(--ease);}
+.repo-link:hover svg{transform:translate(2px,-2px);}
+
+/* ---------- SKILLS ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px;}
+.skill-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px 25px;
+  transition:border-color .3s var(--ease),transform .3s var(--ease),background .3s;
+}
+.skill-card:hover{border-color:var(--border-hi);transform:translateY(-3px);background:rgba(255,255,255,.045);}
+.skill-card h4{
+  font-size:13px;font-weight:600;letter-spacing:1.3px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:15px;font-family:'JetBrains Mono',monospace;
+}
+.skill-card h4.v2{color:var(--accent-2);}
+.skill-card h4.v3{color:var(--accent-3);}
+.skill-list{display:flex;flex-wrap:wrap;gap:7px;}
+
+/* ---------- PRINCIPLES ---------- */
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.principle{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:26px 24px;
+  transition:border-color .3s var(--ease),transform .3s var(--ease);
+}
+.principle:hover{border-color:var(--border-hi);transform:translateY(-3px);}
+.principle-num{
+  font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--text-faint);letter-spacing:1.5px;margin-bottom:12px;
+}
+.principle h4{font-size:15.5px;font-weight:650;margin-bottom:8px;letter-spacing:-.01em;}
+.principle p{font-size:14.2px;color:var(--text-dim);line-height:1.62;}
+
+/* ---------- CONTACT ---------- */
+.contact-box{
+  background:linear-gradient(150deg,rgba(77,159,255,.075),rgba(124,92,255,.065) 52%,rgba(34,211,167,.045));
+  border:1px solid var(--border-hi);border-radius:22px;
+  padding:52px 46px;text-align:center;position:relative;overflow:hidden;
+}
+.contact-box::after{
+  content:'';position:absolute;top:-90px;right:-90px;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(77,159,255,.2),transparent 68%);
+  pointer-events:none;
+}
+.contact-box h2{margin-bottom:14px;}
+.contact-box p{color:var(--text-dim);max-width:56ch;margin:0 auto 32px;font-size:15.5px;}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+
+footer{
+  padding:44px 0 54px;border-top:1px solid var(--border);
+  text-align:center;color:var(--text-faint);font-size:13.4px;
+}
+footer .foot-note{font-size:12.4px;margin-top:9px;color:#525a6c;}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .72s var(--ease),transform .72s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+  *{animation:none!important;}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:820px){
+  .nav-links{display:none;}
+  header{padding:126px 0 74px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .project{padding:26px 24px;}
+  section{padding:70px 0;}
+  .contact-box{padding:40px 24px;}
+}
+@media (max-width:480px){
+  .wrap,.nav-inner{padding:0 18px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .stat{padding:19px 16px;}
+  .stat-num{font-size:1.5rem;}
+  .hero-actions{flex-direction:column;}
+  .btn{justify-content:center;width:100%;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="brand-dot"></span>Hamid Khan</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top" class="wrap">
+  <div class="eyebrow"><span class="live"></span>Open to full-stack &amp; AI engineer roles · Lahore</div>
+
+  <h1>I build complete systems —<br><span class="grad">schema to shipped.</span></h1>
+
+  <p class="lede">
+    Full-stack developer and <strong>AI engineer</strong> working across <strong>ERP and business systems</strong>
+    and <strong>practical AI integration</strong>. Four production-architected systems built end to end: a voice AI
+    that books real appointments, a desktop AI that operates the computer, and two multi-role business platforms —
+    all with real databases, real auth, and real data.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-primary">View the work
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 8h10M8.5 3.5L13 8l-4.5 4.5"/></svg>
+    </a>
+    <a href="resume.pdf" class="btn btn-ghost" download>Download résumé
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M2.5 13h11"/></svg>
+    </a>
+    <a href="mailto:hamidkhan069731@gmail.com" class="btn btn-ghost">Get in touch</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Full-stack systems</div></div>
+    <div class="stat"><div class="stat-num">36</div><div class="stat-label">AI tools built</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Role-based portals</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Real, not mocked</div></div>
+  </div>
+</header>
+
+<!-- ============ PROJECTS ============ -->
+<section id="projects" class="wrap">
+  <div class="section-head reveal">
+    <div class="section-tag">01 — Selected Work</div>
+    <h2>Four systems, built end to end</h2>
+    <p class="section-sub">
+      Each of these was taken from empty folder to working software — database schema, API, authentication and
+      permissions, frontend, and in one case a desktop installer. Every claim below is backed by code in a
+      private repository; I'm glad to walk through any of it.
+    </p>
+  </div>
+
+  <div class="projects">
+
+    <article class="project reveal">
+      <div class="project-top">
+        <div>
+          <div class="project-idx">PROJECT 01</div>
+          <h3>AI Dental Receptionist <span class="project-kind">AI Engineering</span></h3>
+        </div>
+        <a class="repo-link" href="https://github.com/hamidkhan069731-blip/ai-dental-receptionist" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          View code
+        </a>
+      </div>
+      <p class="project-pitch">
+        A patient-facing voice and chat receptionist that <strong>books real appointments against a real database</strong>.
+        Patients talk or type; the AI checks genuine doctor availability and books, cancels, or reschedules — no invented
+        availability, no mock responses.
+      </p>
+      <ul>
+        <li>Built an <strong>availability engine with slot locking and double-booking prevention</strong>, shared by the REST API, the voice widget, and the LLM tool layer through one single code path.</li>
+        <li>Wired real <strong>Anthropic tool-calling</strong> so the AI invokes the exact same service functions as direct API clients — voice, chat, and REST all converge on identical business logic.</li>
+        <li>Designed graceful degradation: with no API key configured the system returns a clear "AI unavailable" state rather than failing or faking a response.</li>
+        <li>Layered JWT auth, rate limiting, a <strong>NotificationService</strong> abstraction (email / SMS / WhatsApp), and a Jest suite covering the business logic.</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span>
+        <span class="tag">PostgreSQL</span><span class="tag">Anthropic SDK</span><span class="tag">Tool-calling</span>
+        <span class="tag">JWT</span><span class="tag">Web Speech API</span><span class="tag">Jest</span>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-top">
+        <div>
+          <div class="project-idx">PROJECT 02</div>
+          <h3>J.A.R.V.I.S. <span class="project-kind a2">Desktop AI</span></h3>
+        </div>
+        <a class="repo-link" href="https://github.com/hamidkhan069731-blip/jarvis-ai-assistant" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          View code
+        </a>
+      </div>
+      <p class="project-pitch">
+        A Windows desktop AI that <strong>actually operates the computer</strong> — launching apps, managing files,
+        monitoring system health, and running gated shell commands — behind a live HUD console. Not a chatbot in a box.
+      </p>
+      <ul>
+        <li>Exposed <strong>36 real tools</strong> across app, file, system, web, memory, and developer categories, with a drop-in skill system for adding more without touching the core.</li>
+        <li>Built a <strong>permission and risk engine</strong> classifying every action by permission level (safe / confirm / always-confirm) and risk (low → critical) — irreversible actions can never be silently auto-run.</li>
+        <li>Implemented a genuine <strong>offline rule-based intent router</strong> so the assistant is fully useful with no API key and no internet, with cloud providers swappable at runtime and nothing hard-coded.</li>
+        <li>Added multilingual routing (English, Urdu, Roman Urdu), a live system HUD (CPU / RAM / disk / network / battery), voice with wake word and barge-in, and an <strong>audit log of every tool call and approval</strong>.</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Python 3.11+</span><span class="tag">FastAPI</span><span class="tag">WebSocket</span>
+        <span class="tag">Anthropic SDK</span><span class="tag">OpenAI-compatible</span><span class="tag">Web Speech API</span>
+        <span class="tag">Permission engine</span>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-top">
+        <div>
+          <div class="project-idx">PROJECT 03</div>
+          <h3>LexOffice — Law Firm ERP <span class="project-kind a3">Business Systems</span></h3>
+        </div>
+        <a class="repo-link" href="https://github.com/hamidkhan069731-blip/lexoffice-law-firm-erp" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          View code
+        </a>
+      </div>
+      <p class="project-pitch">
+        Started life as a single HTML file storing everything in browser IndexedDB — data trapped on one machine, in one
+        browser. I <strong>re-architected it into a genuine multi-user client-server system</strong>.
+      </p>
+      <ul>
+        <li>Built an Express REST API and SQLite data layer covering clients, cases, and firm modules, with real server-side persistence replacing browser-local storage.</li>
+        <li>Implemented <strong>role-based permissions</strong> for Admin, Lawyer, Assistant, and Accountant, with server-verified login issuing JWT tokens.</li>
+        <li>Added first-run seeding so a fresh install self-populates demo data and is immediately usable — no manual setup ritual.</li>
+        <li>Packaged the entire stack as a cross-platform <strong>Electron desktop application</strong> (.exe / .dmg / .AppImage).</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span>
+        <span class="tag">JWT</span><span class="tag">bcrypt</span><span class="tag">Electron</span><span class="tag">REST API</span>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-top">
+        <div>
+          <div class="project-idx">PROJECT 04</div>
+          <h3>University ERP System <span class="project-kind a3">Business Systems</span></h3>
+        </div>
+        <a class="repo-link" href="https://github.com/hamidkhan069731-blip/university-erp-system" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          View code
+        </a>
+      </div>
+      <p class="project-pitch">
+        Three role-based portals — Student, Faculty, Admin — plus a public admissions website, all reading and writing
+        <strong>live PostgreSQL data</strong>. Nothing in the running system is sample data.
+      </p>
+      <ul>
+        <li>Implemented attendance marking with duplicate-save prevention, results with <strong>automatic letter-grade computation</strong>, CGPA, transcripts (print / PDF), exam slips, invoices, and hostel management.</li>
+        <li>Built multi-step student request workflows: retest, course drop, defer term, term resume, I-grade, and final degree.</li>
+        <li>Secured it end to end — bcrypt hashing, <strong>fully parameterised queries</strong>, zod validation on every input, rate-limited login and write endpoints, and a Content-Security-Policy via helmet.</li>
+        <li>Enforced <strong>row-level ownership in SQL rather than the UI</strong>: a student can only ever read their own records, and faculty can only mark or grade students enrolled on their own courses.</li>
+      </ul>
+      <div class="stack">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">PostgreSQL</span>
+        <span class="tag">JWT</span><span class="tag">bcrypt</span><span class="tag">zod</span>
+        <span class="tag">helmet</span><span class="tag">CSP</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills" class="wrap">
+  <div class="section-head reveal">
+    <div class="section-tag">02 — Capabilities</div>
+    <h2>What I work with</h2>
+    <p class="section-sub">Everything listed here was used to build something real, not learned for an interview.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <h4>Backend</h4>
+      <div class="skill-list">
+        <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Python</span>
+        <span class="tag">FastAPI</span><span class="tag">REST API design</span><span class="tag">WebSockets</span>
+        <span class="tag">JWT</span><span class="tag">bcrypt</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4 class="v2">AI Engineering</h4>
+      <div class="skill-list">
+        <span class="tag">Anthropic SDK</span><span class="tag">Tool-calling agents</span>
+        <span class="tag">OpenAI-compatible APIs</span><span class="tag">System prompt design</span>
+        <span class="tag">Tool-schema design</span><span class="tag">Graceful degradation</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4 class="v3">Databases</h4>
+      <div class="skill-list">
+        <span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">Schema design</span>
+        <span class="tag">Migrations</span><span class="tag">Seeded fixtures</span><span class="tag">Parameterised queries</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4>Frontend</h4>
+      <div class="skill-list">
+        <span class="tag">JavaScript ES6+</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+        <span class="tag">Responsive UI</span><span class="tag">Web Speech API</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4 class="v2">Security</h4>
+      <div class="skill-list">
+        <span class="tag">Role-based access control</span><span class="tag">zod validation</span>
+        <span class="tag">Rate limiting</span><span class="tag">helmet / CSP</span>
+        <span class="tag">Row-level ownership</span><span class="tag">Injection prevention</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <h4 class="v3">Tooling &amp; Desktop</h4>
+      <div class="skill-list">
+        <span class="tag">Git &amp; GitHub</span><span class="tag">npm</span><span class="tag">pip</span>
+        <span class="tag">Jest</span><span class="tag">Electron packaging</span><span class="tag">Environment config</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section id="approach" class="wrap">
+  <div class="section-head reveal">
+    <div class="section-tag">03 — How I Work</div>
+    <h2>Four rules I don't break</h2>
+  </div>
+
+  <div class="principles">
+    <div class="principle reveal">
+      <div class="principle-num">01</div>
+      <h4>No fake functionality</h4>
+      <p>If a button exists, it's wired to something real. Where a capability can't be delivered — no API key, no microphone — the system says so plainly and degrades gracefully instead of pretending.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-num">02</div>
+      <h4>Real over impressive</h4>
+      <p>A smaller feature that genuinely works beats a bigger one that only looks like it does. Every project here runs against a real database with real data.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-num">03</div>
+      <h4>Security isn't a later step</h4>
+      <p>Auth, ownership checks, input validation, and rate limiting go in with the first version — not bolted on after launch.</p>
+    </div>
+    <div class="principle reveal">
+      <div class="principle-num">04</div>
+      <h4>End-to-end ownership</h4>
+      <p>Schema → API → UI → packaging. I don't hand off the boring parts, and I document what's real, what needs your keys, and how to run it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="wrap">
+  <div class="contact-box reveal">
+    <div class="section-tag" style="margin-bottom:14px;">04 — Contact</div>
+    <h2>Let's build something real</h2>
+    <p>
+      Open to full-stack developer, AI engineer, and backend / ERP roles — plus freelance work.
+      Currently studying BS Computer Science at Superior University, Lahore.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:hamidkhan069731@gmail.com" class="btn btn-primary">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="1.8" y="3.4" width="12.4" height="9.2" rx="1.6"/><path d="M2.4 4.6L8 8.6l5.6-4"/></svg>
+        hamidkhan069731@gmail.com
+      </a>
+      <a href="tel:+923486311899" class="btn btn-ghost">0348 6311899</a>
+      <a href="https://www.linkedin.com/in/hamid-khan-dev07" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/hamidkhan069731-blip" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> Hamid Khan — Full-Stack Developer &amp; AI Engineer, Lahore, Pakistan</div>
+    <div class="foot-note">Built by hand. No frameworks, no templates — just HTML, CSS, and JavaScript.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav border on scroll
+  var nav = document.getElementById('nav');
+  var ticking = false;
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // reveal on scroll
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        setTimeout(function(){ el.classList.add('in'); }, Math.min(i * 60, 240));
+        io.unobserve(el);
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
